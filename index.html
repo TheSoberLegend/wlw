@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>W.L.W. — Women Love Women (EP)</title>
+<meta name="description" content="W.L.W. (Women Love Women) — EP landing page with pre-save, tracklist, and updates." />
+<meta name="theme-color" content="#0b0f12" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton:wght@400&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0b0f12; --fg:#e8ecef; --muted:#9aa5ac;
+  --berry:#d946ef; --mag:#ff3ea5; --sage:#9bbf9a; --gold:#f5d06c;
+  --panel:rgba(255,255,255,.04); --line:rgba(255,255,255,.09);
+  --ring:rgba(217,70,239,.28);
+}
+*{box-sizing:border-box} html,body{height:100%}
+body{
+  margin:0; font-family:"Outfit",system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  color:var(--fg);
+  background:
+    radial-gradient(1200px 600px at 90% -10%, rgba(255,62,165,.08), transparent 60%),
+    radial-gradient(900px 480px at 10% -10%, rgba(155,191,154,.07), transparent 60%),
+    var(--bg);
+  line-height:1.6;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:1.2rem}
+.header{position:sticky;top:0;z-index:20;background:rgba(11,15,18,.55);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:.8rem}
+.logo{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
+  background:conic-gradient(from 220deg,var(--mag),var(--berry));color:#160014;font-weight:900;box-shadow:0 14px 30px var(--ring)}
+.brand h1{font-family:"Anton",sans-serif;letter-spacing:.4px;margin:0;font-size:1.6rem}
+.nav{list-style:none;display:flex;gap:1rem;margin:0;padding:0}
+.nav a{color:var(--fg);text-decoration:none;opacity:.92}
+.nav a:hover{opacity:1;border-bottom:1px dashed rgba(255,255,255,.25)}
+.nav .sep{opacity:.35;margin:0 .25rem}
+.social-pill{padding:.45rem .7rem;border:1px solid rgba(255,255,255,.18);border-radius:.7rem;text-decoration:none}
+.social-pill:hover{background:rgba(255,255,255,.08)}
+
+.hero{position:relative;overflow:hidden}
+.hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:2rem;align-items:center;padding:3.2rem 0 1.8rem}
+.eyebrow{color:var(--berry);text-transform:uppercase;letter-spacing:.2em;font-weight:800;font-size:.78rem}
+.h1{font-family:"Anton",sans-serif;font-size:clamp(2.4rem,5.8vw,4.8rem);line-height:1.03;margin:.35rem 0 .6rem}
+.h1 .stroke{background:linear-gradient(90deg,var(--mag),#ff7ad0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--muted);max-width:60ch}
+.cta{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.1rem}
+.btn{display:inline-block;background:var(--mag);color:#170014;border:1px solid transparent;
+  padding:.85rem 1.1rem;border-radius:.9rem;font-weight:800;text-decoration:none;box-shadow:0 14px 34px var(--ring)}
+.btn.ghost{background:transparent;color:var(--fg);border:1px solid rgba(255,255,255,.18)}
+.note{color:var(--muted);font-size:.92rem;margin-top:.35rem}
+
+.album{position:relative;aspect-ratio:1/1;border-radius:16px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.45)}
+.album img{width:100%;height:100%;object-fit:cover;display:block}
+.vinyl{position:absolute;right:-18%;top:50%;transform:translateY(-50%);width:70%;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle at 50% 50%, #222 0 14%, #111 14% 16%, #1a1a1a 16% 100%),
+             repeating-radial-gradient(circle,transparent 0 2px,rgba(255,255,255,.04) 2px 3px);
+  animation:spin 18s linear infinite;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+.vinyl::after{content:"WLW";position:absolute;inset:0;margin:auto;width:28%;height:28%;border-radius:50%;
+  background:#f0cfff;color:#3d0a3f;font-weight:900;display:grid;place-items:center;font-family:"Anton",sans-serif}
+@keyframes spin{to{transform:translateY(-50%) rotate(360deg)}}
+
+.badgebar{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.7rem}
+.badge{display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .6rem;border-radius:.6rem;border:1px dashed rgba(255,255,255,.25);color:var(--muted);font-size:.85rem}
+.badge .dot{width:7px;height:7px;border-radius:50%;background:var(--gold)}
+
+.section{padding:2.2rem 0}
+.tracklist{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:1rem;padding:1rem;box-shadow:0 12px 28px rgba(0,0,0,.35)}
+.card h4{margin:.15rem 0 .35rem;font-family:"Anton",sans-serif;letter-spacing:.35px}
+.card p{margin:0;color:var(--muted)}
+.meta{color:var(--muted);font-size:.92rem;margin:.2rem 0 .5rem}
+.playrow{display:flex;gap:.5rem;align-items:center;margin-top:.5rem}
+.playrow button{padding:.45rem .75rem;border-radius:.6rem;border:1px solid rgba(255,255,255,.18);background:var(--sage);color:#0b2410;font-weight:800;cursor:pointer}
+.playrow small{color:var(--muted)}
+
+.embed{background:var(--panel);border:1px solid var(--line);border-radius:1rem;padding:1rem}
+.embed iframe{width:100%;height:360px;border:0;border-radius:.8rem;display:block;background:#000}
+
+.form{display:grid;gap:1rem;max-width:560px;margin-top:1rem;border:1px solid rgba(255,255,255,.18);
+  padding:1rem;border-radius:1rem;background:linear-gradient(0deg, rgba(217,70,239,.10), rgba(217,70,239,.00))}
+label{display:block;margin-bottom:.35rem;color:var(--muted)}
+input[type="text"],input[type="email"]{width:100%;padding:.85rem 1rem;border-radius:.8rem;border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.06);color:var(--fg)}
+input:focus{outline:none; box-shadow:0 0 0 3px rgba(217,70,239,.25)}
+.form-status{margin-top:.5rem;padding:.7rem .9rem;border-radius:.6rem;background:rgba(217,70,239,.12);border:1px solid rgba(217,70,239,.35)}
+
+.counter{background:var(--panel);border:1px solid var(--line);border-radius:1rem;padding:1rem;max-width:560px;box-shadow:0 12px 28px rgba(0,0,0,.35)}
+.big{font-size:2rem;font-weight:800;color:#f0cfff;margin:.2rem 0 .2rem}
+
+.footer{border-top:1px solid var(--line)}
+.footer p{color:var(--muted);text-align:center;margin:1.2rem 0}
+
+@media (max-width:980px){
+  .hero .grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap bar">
+    <div class="brand">
+      <div class="logo">WLW</div>
+      <h1>W.L.W. — EP</h1>
+    </div>
+    <nav>
+      <ul class="nav">
+        <li><a href="#presave">Pre-Save</a></li>
+        <li><a href="#tracks">Tracklist</a></li>
+        <li><a href="#video">Video</a></li>
+        <li><a href="#updates">Updates</a></li>
+        <li class="sep" aria-hidden="true">|</li>
+        <li><a class="social-pill" href="https://www.tiktok.com/@YOUR_TIKTOK" target="_blank" rel="noopener">TikTok</a></li>
+        <li><a class="social-pill" href="https://www.instagram.com/YOUR_INSTAGRAM" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap grid">
+      <div>
+        <div class="eyebrow">New EP</div>
+        <h2 class="h1"><span class="stroke">W.L.W.</span> — Women Love Women</h2>
+        <p class="lead">A love letter in bass, bloom, and honesty. Pre-save now and get first listen + launch discount on the deluxe pack.</p>
+        <div class="cta" id="presave">
+          <a class="btn" href="#presave-links">Pre-Save Now</a>
+          <a class="btn ghost" href="#tracks">See Tracklist</a>
+        </div>
+        <div class="badgebar">
+          <span class="badge"><span class="dot"></span> Release: <strong id="releaseDateTxt">Oct 1, 2025</strong></span>
+          <span class="badge"><span class="dot"></span> Countdown: <strong id="countdown">—</strong></span>
+        </div>
+        <p class="note">Change date later if needed — it’s just a placeholder.</p>
+      </div>
+
+      <div class="album">
+        <!-- SWAP_ME: upload assets/cover.jpg and replace src -->
+        <img src="https://placehold.co/1000x1000/0b0f12/e8ecef?text=W.L.W.+Cover" alt="W.L.W. EP cover art">
+        <div class="vinyl" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRE-SAVE LINKS -->
+  <section class="section">
+    <div class="wrap" id="presave-links">
+      <h3 style="font-family:Anton,sans-serif;letter-spacing:.4px;margin:.2rem 0 .6rem">Pre-Save on Your Platform</h3>
+      <div class="cta">
+        <!-- Replace # with your smart-link or direct links -->
+        <a class="btn" href="#" target="_blank" rel="noopener">Spotify</a>
+        <a class="btn" href="#" target="_blank" rel="noopener">Apple Music</a>
+        <a class="btn" href="#" target="_blank" rel="noopener">YouTube</a>
+      </div>
+      <p class="note">Don’t have links yet? Leave as # for now — the buttons will do nothing until you add them.</p>
+    </div>
+  </section>
+
+  <!-- TRACKLIST -->
+  <section id="tracks" class="section">
+    <div class="wrap">
+      <h3 style="font-family:Anton,sans-serif;letter-spacing:.4px;margin:.2rem 0 .8rem">Tracklist</h3>
+      <div class="tracklist">
+
+        <div class="card">
+          <h4>Track 01 — Soft Armor</h4>
+          <div class="meta">3:08 — pop-R&B / vibey opener</div>
+          <p>Guarded hearts learning to bloom. First kiss energy, zero apologies.</p>
+          <div class="playrow">
+            <button data-snippet="assets/snippet-01.mp3">Play Snippet</button>
+            <small>Snippet coming soon</small>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>Track 02 — Mirrorball</h4>
+          <div class="meta">2:56 — disco-tinged confidence</div>
+          <p>When the light hits right, we all shine. A dance-floor note to self.</p>
+          <div class="playrow">
+            <button data-snippet="assets/snippet-02.mp3">Play Snippet</button>
+            <small>Snippet coming soon</small>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>Track 03 — Honey & Thunder</h4>
+          <div class="meta">3:22 — slow burn, big chorus</div>
+          <p>Sugar on the lips, storm in the chest — love that loves back.</p>
+          <div class="playrow">
+            <button data-snippet="assets/snippet-03.mp3">Play Snippet</button>
+            <small>Snippet coming soon</small>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>Track 04 — Under Neon</h4>
+          <div class="meta">3:11 — late-night drive</div>
+          <p>City lights, clean mind. Choosing each other — and choosing clarity.</p>
+          <div class="playrow">
+            <button data-snippet="assets/snippet-04.mp3">Play Snippet</button>
+            <small>Snippet coming soon</small>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>Track 05 — WLW (Interlude)</h4>
+          <div class="meta">1:07 — voicemail + strings</div>
+          <p>A voice note becomes a vow.</p>
+          <div class="playrow">
+            <button data-snippet="assets/snippet-05.mp3">Play Snippet</button>
+            <small>Snippet coming soon</small>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section id="video" class="section">
+    <div class="wrap">
+      <h3 style="font-family:Anton,sans-serif;letter-spacing:.4px;margin:.2rem 0 .6rem">Watch</h3>
+      <div class="embed">
+        <!-- Replace VIDEO_ID with your YouTube ID when ready -->
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0" title="WLW — Official Visualizer" allowfullscreen></iframe>
+      </div>
+      <p class="note">No video yet? Leave this as is — it’ll just show a blank player.</p>
+    </div>
+  </section>
+
+  <!-- UPDATES / EMAIL -->
+  <section id="updates" class="section">
+    <div class="wrap">
+      <h3 style="font-family:Anton,sans-serif;letter-spacing:.4px;margin:.2rem 0 .4rem">Get Early Access & Launch Discount</h3>
+      <p class="lead" style="margin:.2rem 0 1rem;color:var(--muted)">Join the list for first listen + exclusive launch discount on the WLW deluxe pack.</p>
+      <form id="waitlistForm" class="form" action="https://formspree.io/f/mblapnan" method="POST" novalidate>
+        <div>
+          <label for="name">Name</label>
+          <input id="name" name="name" placeholder="Your name" required />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required />
+        </div>
+        <!-- tagging so you know it came from WLW page -->
+        <input type="hidden" name="project" value="wlw_ep">
+        <input type="hidden" name="offer" value="launch_discount">
+        <input type="hidden" name="ref" id="refField" value="">
+        <button class="btn" type="submit">Notify Me</button>
+        <div class="form-status" id="formStatus" role="alert" aria-live="polite" hidden></div>
+        <p class="note">Unsubscribe anytime.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- COUNTDOWN (optional fun) -->
+  <section class="section">
+    <div class="wrap counter">
+      <div class="big"><span id="dd">—</span>d : <span id="hh">—</span>h : <span id="mm">—</span>m : <span id="ss">—</span>s</div>
+      <div class="note">Countdown to release</div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap"><p>© <span id="year"></span> W.L.W. — Women Love Women</p></div>
+</footer>
+
+<script>
+// ---- small helpers
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// capture ?ref= for your form
+(function(){
+  const p = new URLSearchParams(location.search);
+  const ref = p.get('ref');
+  if(ref){ const f = document.getElementById('refField'); if(f) f.value = ref; }
+})();
+
+// countdown (edit date below)
+const RELEASE_DATE = new Date('2025-10-01T00:00:00'); // <-- change when you know your date
+document.getElementById('releaseDateTxt').textContent = RELEASE_DATE.toLocaleDateString(undefined, {month:'short', day:'numeric', year:'numeric'});
+const dd=document.getElementById('dd'),hh=document.getElementById('hh'),mm=document.getElementById('mm'),ss=document.getElementById('ss');
+function tick(){
+  const now=new Date(), t=RELEASE_DATE-now;
+  if(t<=0){ dd.textContent=hh.textContent=mm.textContent=ss.textContent='00'; return; }
+  const d=Math.floor(t/86400000), h=Math.floor(t%86400000/3600000), m=Math.floor(t%3600000/60000), s=Math.floor(t%60000/1000);
+  dd.textContent=String(d).padStart(2,'0'); hh.textContent=String(h).padStart(2,'0'); mm.textContent=String(m).padStart(2,'0'); ss.textContent=String(s).padStart(2,'0');
+}
+tick(); setInterval(tick,1000);
+
+// form basic validation + async submit
+const form=document.getElementById('waitlistForm'), statusEl=document.getElementById('formStatus');
+form?.addEventListener('submit', async (ev)=>{
+  ev.preventDefault();
+  const name=document.getElementById('name').value.trim();
+  const email=document.getElementById('email').value.trim();
+  if(!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    statusEl.hidden=false; statusEl.textContent='Please enter a valid name and email.'; return;
+  }
+  statusEl.hidden=true; statusEl.textContent='';
+  try{
+    const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
+    statusEl.textContent = res.ok ? "You’re on the list! Watch your inbox." : "Something went wrong. Please try again.";
+  }catch{ statusEl.textContent='Network error. Try again.'; }
+  finally{ statusEl.hidden=false; }
+});
+
+// audio snippet buttons (works when you upload files in /assets)
+let currentAudio=null;
+document.querySelectorAll('[data-snippet]').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const src=btn.getAttribute('data-snippet');
+    if(currentAudio){ currentAudio.pause(); currentAudio=null; }
+    const a=new Audio(src);
+    a.play().catch(()=>{}); // will fail silently if file missing
+    currentAudio=a;
+  });
+});
+</script>
+</body>
+</html>
